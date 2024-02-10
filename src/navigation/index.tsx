@@ -3,7 +3,6 @@ import React from 'react'
 
 import HomeScreen from '../screens/Home';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CatalogScreen from '../screens/Catalog';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import CustomHeader from '../components/Layout/Header';
 
@@ -30,7 +29,6 @@ const AppNavigation = () => {
 
             >
                 <Tab.Screen name="Home" component={HomeScreen} />
-                <Tab.Screen name="Catalog" component={CatalogScreen} />
 
             </Tab.Navigator>
         </NavigationContainer >

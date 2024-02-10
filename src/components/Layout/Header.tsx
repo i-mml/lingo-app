@@ -5,8 +5,9 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 const CustomHeader = (props: any) => {
     return (
         <View style={styles.header}>
-            <Text style={styles.title}>{props?.title}</Text>
-            <Ionicons name="menu" size={32} color="black" />
+            <Ionicons name="search" size={32} color="#9CA3AF" />
+            <Text style={styles.title}>لینگولرد</Text>
+            <Ionicons name="menu" size={32} color="#9CA3AF" />
         </View>
     )
 }
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     header: {
         height: 50,
         paddingTop: 10,
-        backgroundColor: '#f4511e',
+        backgroundColor: '#000',
         alignItems: 'center',
         justifyContent: "space-between",
         flexDirection: "row",
