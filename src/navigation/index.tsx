@@ -5,14 +5,16 @@ import HomeScreen from '../screens/Home';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CatalogScreen from '../screens/Catalog';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import CustomHeader from '../components/Layout/Header';
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigation = () => {
     return (
-        <NavigationContainer >
+        <NavigationContainer>
             <Tab.Navigator
                 screenOptions={({ route }) => ({
+                    header: props => <CustomHeader title={route.name} {...props} />,
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName: any = "home";
 
@@ -24,7 +26,6 @@ const AppNavigation = () => {
 
                         return <Ionicons name={iconName} size={32} color="green" />;
                     },
-
                 })}
 
             >
@@ -32,7 +33,7 @@ const AppNavigation = () => {
                 <Tab.Screen name="Catalog" component={CatalogScreen} />
 
             </Tab.Navigator>
-        </NavigationContainer>
+        </NavigationContainer >
     )
 }
 
