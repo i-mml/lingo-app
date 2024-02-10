@@ -1,8 +1,9 @@
 import { BaseQueryFn, createApi } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
+import { baseUrl } from "../../constants/config";
 
 const axiosInstance = axios.create({
-  baseURL: "https://api.example.com",
+  baseURL: baseUrl,
 });
 
 const axiosBaseQuery: BaseQueryFn<string> = async ({
