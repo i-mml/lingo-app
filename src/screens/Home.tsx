@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, ScrollView, FlatList } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import LevelTitle from '../components/LevelTitle';
+import SectionTitle from '../components/SectionTitle';
 
 
 const HomeScreen = ({ navigation }: any) => {
@@ -36,7 +37,15 @@ const HomeScreen = ({ navigation }: any) => {
             <View style={styles.lvlTitle}>
                 <LevelTitle title='سطح: متوسط' />
             </View>
+            <Text style={styles.sectionTitle}>
+                به ادن خوش آمدید | Welcome to Eden
+            </Text>
+            <Text style={styles.sectionDescription}>
+                آیا شما احساس خوشحالی می کنید؟ با این سوال، زوآ و چهار جوان جذاب دیگر که در شبکه های اجتماعی بسیار فعال هستند، به اختصاصی ترین مهمانی تاریخ در جزیره ای مخفی دعوت می شوند که...
+            </Text>
 
+
+            <SectionTitle title='فیلم‌ها' />
             <FlatList
                 data={images}
                 horizontal
@@ -53,6 +62,24 @@ const HomeScreen = ({ navigation }: any) => {
                 )}
             />
 
+            <SectionTitle title='سریال‌ها' />
+            <FlatList
+                data={[...images]?.reverse()}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item }) => (
+                    <View style={styles.sliderImageBox}>
+                        <Image
+                            source={{ uri: item }}
+                            style={styles.sliderImage}
+                            resizeMode="cover"
+                        />
+                    </View>
+                )}
+            />
+
+            <SectionTitle title='مشاهدات اخیر' />
 
         </ScrollView>
     );
@@ -98,12 +125,22 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').width * 0.638,
         borderRadius: 16,
         marginHorizontal: Dimensions.get('window').width * 0.022,
-
     },
     sliderImage: {
         width: "100%",
         height: "100%",
         borderRadius: 16,
+    },
+    sectionTitle: {
+        color: "#fff",
+        fontSize: 14,
+        fontWeight: "500",
+    },
+    sectionDescription: {
+        color: "#9CA3AF",
+        fontSize: 12,
+        fontWeight: "400",
+        marginTop: 4
     }
 });
 
