@@ -9,9 +9,12 @@ const CustomHeader = (props: any) => {
     return (
         <View style={styles.header}>
             <SerchIcon />
-            <View>
+            <View style={styles.logoBox}>
                 <LingoIcon />
-                <Text style={styles.title}>لینگولرد</Text>
+                <View>
+                    <Text style={styles.title}>لینگولرد</Text>
+                    <Text style={styles.subTitle}>Lingolord</Text>
+                </View>
             </View>
             <MenuIcon />
         </View>
@@ -24,13 +27,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: "space-between",
         flexDirection: "row",
-        padding: 16
+        padding: 16,
     },
     title: {
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
     },
+    subTitle: {
+        fontSize: 10,
+        fontWeight: "500",
+        color: '#fff',
+        textAlign: "right",
+        marginTop: 4
+    },
+    logoBox: {
+        flexDirection: "row-reverse",
+        gap: 8
+    }
 });
 
 export default CustomHeader

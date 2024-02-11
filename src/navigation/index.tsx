@@ -12,6 +12,7 @@ const AppNavigation = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator
+
                 screenOptions={({ route }) => ({
                     header: props => <CustomHeader title={route.name} {...props} />,
                     tabBarIcon: ({ focused, color, size }) => {
