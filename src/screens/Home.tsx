@@ -3,11 +3,12 @@ import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import LevelTitle from '../components/LevelTitle';
 import Carousel from 'react-native-reanimated-carousel';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = ({ navigation }: any) => {
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.reportsList}>
                 <View style={styles.reportsBox}>
                     <Text style={{ ...styles.reportTitle, ...{ color: "#61D058" } }}>۳ لغت</Text>
@@ -59,7 +60,7 @@ const HomeScreen = ({ navigation }: any) => {
             </View>
 
 
-        </View>
+        </SafeAreaView>
     );
 };
 
@@ -95,7 +96,8 @@ const styles = StyleSheet.create({
     },
     lvlTitle: {
         marginTop: 24,
-        marginBottom: 16
+        marginBottom: 16,
+        alignItems: "flex-end"
     }
     ,
     slider: {
