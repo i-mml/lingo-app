@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import LevelTitle from '../components/LevelTitle';
-
-
+import Carousel from 'react-native-reanimated-carousel';
 
 const HomeScreen = ({ navigation }: any) => {
+
     return (
         <View style={styles.container}>
             <View style={styles.reportsList}>
@@ -30,6 +30,35 @@ const HomeScreen = ({ navigation }: any) => {
             <View style={styles.lvlTitle}>
                 <LevelTitle title='سطح: متوسط' />
             </View>
+
+            <View style={{ flex: 1 }}>
+                {/* <Carousel
+                    loop
+                    width={320}
+                    height={320}
+                    autoPlay={true}
+                    data={[...new Array(6).keys()]}
+                    scrollAnimationDuration={500}
+                    onSnapToItem={(index: number) => console.log('current index:', index)}
+                    panGestureHandlerProps={{
+                        activeOffsetX: [-10, 10],
+                    }}
+
+                    renderItem={({ index }) => (
+                        <View
+                            style={{
+                                backgroundColor: "blue"
+                            }}
+                        >
+                            <Text style={{ textAlign: 'center', fontSize: 30, color: "red" }}>
+                                {index}
+                            </Text>
+                        </View>
+                    )}
+                /> */}
+            </View>
+
+
         </View>
     );
 };
@@ -67,6 +96,13 @@ const styles = StyleSheet.create({
     lvlTitle: {
         marginTop: 24,
         marginBottom: 16
+    }
+    ,
+    slider: {
+        width: "100%"
+    },
+    slide: {
+        width: "100%"
     }
 });
 

@@ -1,13 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, Text, View } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MenuIcon from '../svgIcons/menu';
 import SerchIcon from '../svgIcons/search';
 import LingoIcon from '../svgIcons/lingo';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const CustomHeader = (props: any) => {
+    const insets = useSafeAreaInsets();
+
     return (
-        <View style={styles.header}>
+        <View style={{ ...styles.header, ...{ paddingTop: Platform.OS === 'ios' ? insets.top : 16 } }} >
             <SerchIcon />
             <View style={styles.logoBox}>
                 <LingoIcon />
@@ -17,7 +20,7 @@ const CustomHeader = (props: any) => {
                 </View>
             </View>
             <MenuIcon />
-        </View>
+        </View >
     )
 }
 
