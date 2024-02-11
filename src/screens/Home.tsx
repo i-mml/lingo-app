@@ -1,14 +1,19 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, Text, StyleSheet, Image, Dimensions, ScrollView, FlatList } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import LevelTitle from '../components/LevelTitle';
-import Carousel from 'react-native-reanimated-carousel';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 const HomeScreen = ({ navigation }: any) => {
-
+    const images = [
+        "https://www.niikidaily.info/wp-content/uploads/2023/07/Barbie1.webp",
+        "https://cutmedia.tv/wp-content/uploads/2023/11/OPENHIMER.webp",
+        "https://gharbtv.com/wp-content/uploads/2021/12/The-Batman-2022.jpg",
+        "https://filmsara.info/wp-content/uploads/2021/12/the-godfather-part-ii-1300.jpg",
+        "https://upload.wikimedia.org/wikipedia/fa/d/df/John_Wick_-_Chapter_4_promotional_poster.jpg.webp   "
+    ]
     return (
-        <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.reportsList}>
                 <View style={styles.reportsBox}>
                     <Text style={{ ...styles.reportTitle, ...{ color: "#61D058" } }}>۳ لغت</Text>
@@ -32,35 +37,24 @@ const HomeScreen = ({ navigation }: any) => {
                 <LevelTitle title='سطح: متوسط' />
             </View>
 
-            <View style={{ flex: 1 }}>
-                {/* <Carousel
-                    loop
-                    width={320}
-                    height={320}
-                    autoPlay={true}
-                    data={[...new Array(6).keys()]}
-                    scrollAnimationDuration={500}
-                    onSnapToItem={(index: number) => console.log('current index:', index)}
-                    panGestureHandlerProps={{
-                        activeOffsetX: [-10, 10],
-                    }}
-
-                    renderItem={({ index }) => (
-                        <View
-                            style={{
-                                backgroundColor: "blue"
-                            }}
-                        >
-                            <Text style={{ textAlign: 'center', fontSize: 30, color: "red" }}>
-                                {index}
-                            </Text>
-                        </View>
-                    )}
-                /> */}
-            </View>
+            <FlatList
+                data={images}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item }) => (
+                    <View style={styles.sliderImageBox}>
+                        <Image
+                            source={{ uri: item }}
+                            style={styles.sliderImage}
+                            resizeMode="cover"
+                        />
+                    </View>
+                )}
+            />
 
 
-        </SafeAreaView>
+        </ScrollView>
     );
 };
 
@@ -98,13 +92,18 @@ const styles = StyleSheet.create({
         marginTop: 24,
         marginBottom: 16,
         alignItems: "flex-end"
-    }
-    ,
-    slider: {
-        width: "100%"
     },
-    slide: {
-        width: "100%"
+    sliderImageBox: {
+        width: Dimensions.get('window').width * 0.433,
+        height: Dimensions.get('window').width * 0.638,
+        borderRadius: 16,
+        marginHorizontal: Dimensions.get('window').width * 0.022,
+
+    },
+    sliderImage: {
+        width: "100%",
+        height: "100%",
+        borderRadius: 16,
     }
 });
 
