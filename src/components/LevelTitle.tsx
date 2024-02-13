@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: "600",
         width: "auto",
+        borderRadius: 20
     }
 })
 

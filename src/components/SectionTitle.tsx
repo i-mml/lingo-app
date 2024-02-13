@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
         marginTop: 32,
         marginBottom: 16,
         fontSize: 14,
-        fontWeight: "700"
+        fontWeight: "700",
+        textAlign: "right"
     }
 })
 export default SectionTitle

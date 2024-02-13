@@ -20,7 +20,7 @@ const AppNavigation = () => {
 
                 screenOptions={({ route }) => ({
                     header: props => <CustomHeader title={route.name} {...props} />,
-                    tabBarStyle: { backgroundColor: "#000", paddingBottom: 8, paddingTop: 8, height: 60, borderColor: "#393939" },
+                    tabBarStyle: { backgroundColor: "#000", paddingBottom: 18, paddingTop: 8, height: 70, borderColor: "#393939" },
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName: any = <CatalogFooter color="#FF2358" />;
 

@@ -64,7 +64,7 @@ const HomeScreen = ({ navigation }: any) => {
 
             <SectionTitle title='سریال‌ها' />
             <FlatList
-                data={[...images]?.reverse()}
+                data={images}
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 keyExtractor={(item, index) => index.toString()}
@@ -135,12 +135,14 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontSize: 14,
         fontWeight: "500",
+        textAlign: "right"
     },
     sectionDescription: {
         color: "#9CA3AF",
         fontSize: 12,
         fontWeight: "400",
-        marginTop: 4
+        marginTop: 4,
+        textAlign: "right"
     }
 });
 
